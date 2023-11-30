@@ -56,7 +56,7 @@ Class RecettesMangerTest extends TestCase {
         // Assertions pour vérifier que des recettes ont été récupérées
         $this->assertIsArray($toutesLesRecettes); // Vérifie que $toutesLesRecettes est un tableau
         $this->assertNotEmpty($toutesLesRecettes); // Vérifie que le tableau n'est pas vide
-        // ... Effectuez d'autres assertions pour vérifier les détails des recettes récupérées si nécessaire
+        
     }
 }
     
