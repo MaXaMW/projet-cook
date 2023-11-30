@@ -1,0 +1,1 @@
+{"version":1,"defects":{"CategorieManagerTest::testGetCategorieById":7,"RecettesManagerTest::testRecupererRecetteParId":8,"RecettesManagerTest::testRecupererToutesLesRecettes":8},"times":{"CategorieManagerTest::testGetCategorieById":0.005,"RecettesManagerTest::testRecupererRecetteParId":0.012,"RecettesManagerTest::testRecupererToutesLesRecettes":0.002}}

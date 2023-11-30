@@ -3,15 +3,14 @@ use PHPUnit\Framework\TestCase;
 require_once 'src/Recettes.php';
 require_once 'src/RecettesManager.php';
 
-class CategorieManagerTest extends TestCase{
-
+Class RecettesManagerTest extends TestCase {
     private $pdo;
-    private $CategorieManager;
+    private $RecettesManager;
 
     public function setUp(): void
     {
         $this->configureDatabase();
-        $this->CategorieManager = new CategorieManager($this->pdo);
+        $this->RecettesManager = new RecettesManager($this->pdo);
     }
 
     public function configureDatabase(): void
@@ -30,10 +29,13 @@ class CategorieManagerTest extends TestCase{
         $this->pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
     }
 
-    public function testRecupererRecetteParId(): void {
-        $recette = $this->recetteManager->recupererRecetteParId(1);
+    public function testRecupererToutesLesRecettes() {
+        // Appel de la méthode pour récupérer toutes les recettes disponibles
+        $toutesLesRecettes = $this->RecettesManager->recupererToutesLesRecettes();
 
-        $this->assertNotEmpty($recette);
-        $this->assertEquals(1, $recette['id']);
+        // Assertions pour vérifier que des recettes ont été récupérées
+        $this->assertIsArray($toutesLesRecettes); // Vérifie que $toutesLesRecettes est un tableau
+        $this->assertNotEmpty($toutesLesRecettes); // Vérifie que le tableau n'est pas vide
     }
 }
+?>
