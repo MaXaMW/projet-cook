@@ -43,4 +43,6 @@ class CategorieManagerTest extends TestCase{
         $this->assertEquals(2, $categorie->getId());
         $this->assertEquals('Plat', $categorie->getNom());
      }
+
+     
     }

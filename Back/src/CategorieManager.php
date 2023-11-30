@@ -18,4 +18,9 @@ Class CategorieManager{
         }
         return $categories;
     }
+
+    public function recupererRecetteParId($id) {
+        $query = "SELECT * FROM recettes WHERE id = ?";
+        return $this->db->executerRequete($query, [$id])->fetch(PDO::FETCH_ASSOC);
+    }
 }
