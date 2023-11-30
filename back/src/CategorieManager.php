@@ -1,6 +1,4 @@
 <?php
-
-
     Class CategorieManager{
         private $pdo;
 
@@ -18,6 +16,4 @@
             }
             return $categories;
         }
-
-
 }

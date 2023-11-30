@@ -26,6 +26,4 @@
             return $this->tempsPreparation;
         }
 
-
-
     }

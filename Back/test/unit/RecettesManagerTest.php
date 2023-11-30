@@ -3,7 +3,7 @@ use PHPUnit\Framework\TestCase;
 require_once 'src/Recettes.php';
 require_once 'src/RecettesManager.php';
 
-Class RecettesManagerTest extends TestCase {
+Class RecettesMangerTest extends TestCase {
     private $pdo;
     private $RecettesManager;
 
@@ -29,13 +29,34 @@ Class RecettesManagerTest extends TestCase {
         $this->pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
     }
 
+    public function recupererToutesLesRecettes(){
+        $stmt = $this->pdo->prepare("SELECT * FROM recettes");
+        $stmt->execute();
+        $results = $stmt->fetchAll();
+    
+        $recettes = [];
+        foreach ($results as $result) {
+            $recettes[] = new Recette(
+                $result['id_recette'],
+                $result['nom_recette'],
+                $result['difficulte'],
+                $result['temps_preparation'],
+                $result['instructions'],
+                $result['id_categorie']
+            );
+        }
+    
+        return $recettes;
+    }
+    
     public function testRecupererToutesLesRecettes() {
         // Appel de la méthode pour récupérer toutes les recettes disponibles
-        $toutesLesRecettes = $this->RecettesManager->recupererToutesLesRecettes();
-
+        $toutesLesRecettes = $this->recupererToutesLesRecettes();
+    
         // Assertions pour vérifier que des recettes ont été récupérées
         $this->assertIsArray($toutesLesRecettes); // Vérifie que $toutesLesRecettes est un tableau
         $this->assertNotEmpty($toutesLesRecettes); // Vérifie que le tableau n'est pas vide
+        
     }
 }
-?>
+    
