@@ -1,5 +1,5 @@
 #Ignore le dossier vendor
 /vendor
-phpunit.xml
 
-#Ignore l
+#Ignore phpunit.xml
+phpunit.xml
