@@ -3,7 +3,8 @@ use PHPUnit\Framework\TestCase;
 require_once 'src/Recettes.php';
 require_once 'src/RecettesManager.php';
 
-class CategorieManagerTest extends TestCase{
+class CategorieManagerTest extends TestCase 
+{
 
     private $pdo;
     private $CategorieManager;
@@ -29,4 +30,5 @@ class CategorieManagerTest extends TestCase{
 
         $this->pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
     }
+}
     
