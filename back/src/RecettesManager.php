@@ -1,13 +1,13 @@
 
 <?php
 
-    class Recette {
-        private $db;
-    
-        public function __construct(Database $db) {
-            $this->db = $db;
-        }
-    
+class RecettesManager {
+    private $pdo;
+
+    public function __construct(PDO $pdo) {
+        $this->pdo = $pdo;
+    }
+
         public function recupererRecetteParId($id) {
             $query = "SELECT * FROM recettes WHERE id = ?";
             return $this->db->executerRequete($query, [$id])->fetch(PDO::FETCH_ASSOC);
