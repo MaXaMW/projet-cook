@@ -29,4 +29,11 @@ class CategorieManagerTest extends TestCase{
 
         $this->pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
     }
-    
+
+    public function testRecupererRecetteParId(): void {
+        $recette = $this->recetteManager->recupererRecetteParId(1);
+
+        $this->assertNotEmpty($recette);
+        $this->assertEquals(1, $recette['id']);
+    }
+}
