@@ -1,17 +1,17 @@
 <?php
 use PHPUnit\Framework\TestCase;
+require_once 'src/Recettes.php';
+require_once 'src/RecettesManager.php';
 
-require_once './src/User.php';
-require_once './src/UserManager.php';
+class CategorieManagerTest extends TestCase{
 
-class UserTest extends TestCase {
     private $pdo;
-    private $userManager;
+    private $CategorieManager;
 
     public function setUp(): void
     {
         $this->configureDatabase();
-        $this->userManager = new UserManager($this->pdo);
+        $this->CategorieManager = new CategorieManager($this->pdo);
     }
 
     public function configureDatabase(): void
@@ -29,4 +29,4 @@ class UserTest extends TestCase {
 
         $this->pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
     }
-}
+    

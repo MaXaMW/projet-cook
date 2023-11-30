@@ -16,6 +16,16 @@
             return $this->id;
         }
 
-        
+        public function getNom(){
+            return $this->nom;
+        }
+        public function getDifficulté(){
+            return $this->difficulte;
+        }
+        public function getTempsPréparation(){
+            return $this->tempsPreparation;
+        }
+
+
 
     }
